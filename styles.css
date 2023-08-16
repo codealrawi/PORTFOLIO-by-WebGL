@@ -1,0 +1,199 @@
+@font-face {
+    font-family: 'Genos';
+    src: url('path-to-your-fonts/Genos-Regular.woff2') format('woff2'),
+         url('path-to-your-fonts/Genos-Regular.woff') format('woff'),
+         url('path-to-your-fonts/Genos-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #3498db, #e74c3c, #27ae60, #9b59b6);
+    background-size: 600% 600%;
+    animation: gradientAnimation 15s ease infinite;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .animated-text {
+    font-family: 'Genos', sans-serif;
+    font-size: 48px;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    visibility: hidden;
+  }
+
+  .animated-line {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    opacity: 0;
+    animation-fill-mode: forwards;
+  }
+
+  .text-line {
+    font-size: 48px;
+    font-weight: bold;
+    background-image: linear-gradient(45deg, #FF9F7F, #FFD97E, #A2D5E6, #93C6E0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .background-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 200px;
+    font-weight: bold;
+    opacity: 0.05;
+    pointer-events: none;
+  }
+
+  .project-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 25px;
+    margin-top: 20px;
+    padding: 90px;
+    position: absolute;
+    top: 0;
+  }
+
+  .project-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    position: relative;
+    opacity: 0.8;
+  }
+
+  .project-link:hover {
+    transform: translateY(-5px);
+    opacity: 1;
+    color: #c1ed00;
+  }
+
+  .project-link::before {
+    content: attr(data-hover-text);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 16px;
+    color: #ffffff;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .project-link:hover::before {
+    opacity: 1;
+  }
+
+  .project-link::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 100%;
+    height: 2px;
+    background-color: #c1ed00;
+    opacity: 0;
+    transform-origin: center center;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  }
+
+  .project-link:hover::after {
+    transform: translateX(-50%) scaleX(1);
+    opacity: 1;
+  }
+
+  .download-link {
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    padding: 10px;
+  }
+
+  .download-link:hover {
+    color: #FFD700;
+    transform: scale(1.05);
+  }
+
+  .download-link::before {
+    content: "😎 You should take me to work 😎";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 30px;
+    color: #fff;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .download-link:hover::before {
+    opacity: 1;
+  }
+
+  @keyframes appearAnimation {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes gradientAnimation {
+    0%, 100% {
+      background-position: 0 0;
+    }
+    25% {
+      background-position: 100% 0;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    75% {
+      background-position: 0 100%;
+    }
+  }
+
+  @keyframes textEffect {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.1);
+    }
+  }
+
+  @keyframes rotateText {
+    0% {
+      transform: rotateX(0deg) rotateY(0deg);
+    }
+    100% {
+      transform: rotateX(15deg) rotateY(15deg);
+    }
+  }
